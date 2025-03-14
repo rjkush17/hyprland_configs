@@ -20,7 +20,7 @@ return {
                     untracked    = { text = '┆' },
                 },
                 signs_staged_enable          = true,
-                signcolumn                   = true, -- Toggle with `:Gitsigns toggle_signs`
+                signcolumn                   = true,  -- Toggle with `:Gitsigns toggle_signs`
                 numhl                        = false, -- Toggle with `:Gitsigns toggle_numhl`
                 linehl                       = false, -- Toggle with `:Gitsigns toggle_linehl`
                 word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
@@ -41,7 +41,7 @@ return {
                 current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
                 sign_priority                = 6,
                 update_debounce              = 100,
-                status_formatter             = nil, -- Use default
+                status_formatter             = nil,   -- Use default
                 max_file_length              = 40000, -- Disable if file is longer than this (in lines)
                 preview_config               = {
                     -- Options passed to nvim_open_win
@@ -55,21 +55,8 @@ return {
         end
     },
     {
-        "TimUntersberger/neogit",
-        dependencies = { "nvim-lua/plenary.nvim" }, -- Required dependency
-        config = function()
-            local neogit = require("neogit")
-            neogit.setup({
-                integrations = {
-                    diffview = true, -- Enables diffview integration if installed
-                },
-            })
-
-            -- Keymaps for Neogit
-            vim.keymap.set("n", "<leader>gg", "<cmd>Neogit kind=split<CR>", { desc = "Open Neogit (split mode)" })
-            vim.keymap.set("n", "<leader>gc", "<cmd>Neogit commit<CR>", { desc = "Open Neogit commit UI" })
-            vim.keymap.set("n", "<leader>gp", "<cmd>Neogit push<CR>", { desc = "Push changes using Neogit" })
-            vim.keymap.set("n", "<leader>gl", "<cmd>Neogit pull<CR>", { desc = "Pull changes using Neogit" })
-        end
+        "tpope/vim-fugitive",
+        cmd = { "Git", "Gdiffsplit", "Gread", "Gwrite", "Ggrep", "GMove", "GDelete", "GBrowse", "GRemove", "GRename", "Glgrep", "Gedit" },
+        ft = { "fugitive" },
     }
 }
