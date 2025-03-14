@@ -8,6 +8,9 @@ return {
 	},
 	config = function()
 		require("neo-tree").setup({
+			window = {
+				width = 27, -- Set NeoTree width to 25 columns (adjust as needed)
+			},
 			filesystem = {
 				filtered_items = {
 					visible = true, -- Show hidden files

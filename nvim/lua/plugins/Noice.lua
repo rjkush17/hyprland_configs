@@ -21,4 +21,4 @@ return {
     vim.api.nvim_set_keymap("n", "<leader>c", ":NoiceDismiss<CR>", { noremap = true, silent = true })
     vim.api.nvim_set_keymap("n", "<leader>nh", ":NoiceHistory<CR>", { noremap = true, silent = true })
   end
-}
+} 
